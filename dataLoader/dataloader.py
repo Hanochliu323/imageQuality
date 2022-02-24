@@ -11,20 +11,19 @@ import os
 import cv2
 import torch
 import math
-from PIL import ImageFile
-ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 
 class AVADataset(Dataset):
 
     def __init__(self, transforms = None, train=True, test=False, txtFileName=''):
         self.train = train
         self.test = test
-        path = txtFileName
+        path = "./temp/AVA_scores.txt"
         imagePath = ""
         if self.test:
-            imagePath = "./data/val"
+            imagePath = "./dataset/test"
         else:
-            imagePath = "./data/train"
+            imagePath = "./dataset/train"
         labels = []
         imageData = []
         filename = open(path, mode="r", encoding="utf-8")
